@@ -1,4 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100; 200;300;400;500;600&display=swap');
+@font-face {
+  font-family: icons;
+  font-display: swap;
+  src: url(../fonts/icons.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal
+}
+[class*=_icon-]::before {
+  font-family: icons;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+._icon-s-github:before {
+  content: ""
+}
+._icon-s-instagram:before {
+  content: ""
+}
+._icon-s-linkedin:before {
+  content: ""
+}
+._icon-s-telegram:before {
+  content: ""
+}
+._icon-s-x-twitter:before {
+  content: ""
+}
 * {
   padding: 0;
   margin: 0;
@@ -296,23 +328,37 @@ body {
   transition: all .5s ease 0s
 }
 .promo__container {
+  position: relative
+}
+.promo__content {
+  position: absolute;
+  width: calc(100% - 1.875rem);
+  height: 100%;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(2,1fr);
   padding-top: 6.875rem;
   padding-bottom: 1.875rem;
-  -webkit-column-gap: 3.75rem;
-  -moz-column-gap: 3.75rem;
-  column-gap: 3.75rem
+  -webkit-column-gap: 1.25rem;
+  -moz-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  padding-left: .9375rem;
+  padding-right: .9375rem
 }
 .promo__image {
+  position: relative;
   border-radius: 100%;
   overflow: hidden;
-  max-width: 31.25rem;
+  padding-bottom: 81.3%;
+  max-width: 81.3%;
   box-shadow: 0 0 3.125rem #b74b4b
 }
 .promo__image img {
-  max-width: 100%
+  position: absolute;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 100%;
+  width: 100%
 }
 .promo__body {
   flex: 0 0 50%;
@@ -531,14 +577,17 @@ body {
   .header__container {
     min-height: 3.75rem
   }
-  .promo__container {
+  .promo__content {
     grid-template-columns: 1fr;
     row-gap: 1.5625rem;
-    padding-top: 5.625rem
+    padding-top: 5.625rem;
+    padding-left: 0;
+    padding-right: 0
   }
   .promo__image {
     justify-self: center;
-    max-width: 15.625rem
+    padding-bottom: 15rem;
+    width: 15rem
   }
 }
 @media (max-width:47.99875em)and (any-hover:none) {
