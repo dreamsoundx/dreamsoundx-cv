@@ -458,6 +458,13 @@
             }));
         }
     }), 0);
+    document.addEventListener("click", (function(e) {
+        const targetElement = e.target;
+        if (targetElement.closest(".menu__link") && document.documentElement.classList.contains("menu-open")) {
+            document.documentElement.classList.remove("lock");
+            document.documentElement.classList.remove("menu-open");
+        }
+    }));
     window["FLS"] = true;
     isWebp();
     menuInit();
